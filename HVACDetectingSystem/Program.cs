@@ -16,7 +16,14 @@ namespace HVACDetectingSystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new FrmMain());
         }
+
+        /// <summary>
+        /// Program类的一个全局静态字段,保存登陆用户的对象
+        /// </summary>
+        public static Models.User objCurrentUser = null;
+
+        public static string currentProductType = null;
     }
 }

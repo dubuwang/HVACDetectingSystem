@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace HVACDetectingSystem
 {
-    public partial class Form1 : Form
+    public partial class FrmDetectionManual : Form
     {
-        public Form1()
+        public FrmDetectionManual()
         {
             InitializeComponent();
         }
