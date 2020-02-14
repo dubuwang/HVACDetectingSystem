@@ -164,8 +164,14 @@ namespace HVACDetectingSystem
                 }
             }
         }
-        
+
+
         #endregion
+
+        private void FrmMain_Load(object sender, EventArgs e)
+        {
+            //this.toolStripStatusLbl_Time.Text = "12345678";
+        }
 
        
     }

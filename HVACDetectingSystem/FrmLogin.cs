@@ -110,6 +110,6 @@ namespace HVACDetectingSystem
             this.Close();
         }
 
-       
+        
     }
 }
