@@ -24,5 +24,7 @@ namespace Models
         public string IsPassed { get; set; }
 
         public DateTime DetectTime { get; set; }
+
+        public int HvacId { get; set; }
     }
 }

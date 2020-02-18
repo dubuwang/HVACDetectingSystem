@@ -104,7 +104,7 @@ namespace HVACDetectingSystem
             //2.将页面展示的HVAC设为该HVAC
             currentDetectedHVAC = objHVAC;
 
-            // 2. 读取PLC检测的数据
+            //3. 读取PLC检测的数据
             if (!ReadParams(objHVAC))
             {
                 MessageBox.Show("读取检测数据错误");
@@ -113,21 +113,21 @@ namespace HVACDetectingSystem
                 return;
             }
             
-            //3.  判断HVAC是否合格
+            //3. 判断HVAC是否合格
             CheckPassed(objHVAC);
 
-            // 4.显示HVAC的 IsDetected参数
+            //4.显示HVAC的 IsDetected参数
             UpdateDgvParam(GetDetectedListParam(objHVAC.Params));
             SetDgvIsPassedColor(dgvParam);
 
-            // 5.显示HVAC的 非IsDetected参数
+            //5.显示HVAC的 非IsDetected参数
             this.LFaceDef_Sponge.LanternBackground = objHVAC.Params[24].Value == 1f ? Color.LimeGreen : Color.Red;
             this.LExpansion_Sponge.LanternBackground = objHVAC.Params[25].Value == 1f ? Color.LimeGreen : Color.Red;
             this.LTube_Direction.LanternBackground = objHVAC.Params[26].Value == 1f ? Color.LimeGreen : Color.Red;
             this.LWind_Sponge.LanternBackground = objHVAC.Params[27].Value == 1f ? Color.LimeGreen : Color.Red;
             
 
-            // 6.更新合格数
+            //6.更新合格数
             if (objHVAC.IsPassed == "合格")
             {
                 passNum++;
@@ -250,7 +250,7 @@ namespace HVACDetectingSystem
                         // 40002 => 002 => 4 
                         int start = int.Parse(item.ModubsAddr.Substring(2, 3)) * 2;
                         byte[] data = new byte[4] { b1[start], b1[start + 1], b1[start + 2], b1[start + 3] };
-                        data = ReverseFormatDCBA(data);
+                        data = Common.DataConverter.ReverseFormatDCBA(data);
                         item.Value = BitConverter.ToSingle(data, 0);    //startIndex处的字节为高位字节
                     }
                 }
@@ -289,46 +289,7 @@ namespace HVACDetectingSystem
             }
 
         }
-
-        private byte[] ReverseFormatCDBA(byte[] buff)
-        {
-            byte[] res = new byte[buff.Length];
-            if (buff.Length == 4)
-            {
-                res[0] = buff[2];
-                res[1] = buff[3];
-                res[2] = buff[0];
-                res[3] = buff[1];
-            }
-            return res;
-        }
-
-        private byte[] ReverseFormatBADC(byte[] buff)
-        {
-            byte[] res = new byte[buff.Length];
-            if (buff.Length == 4)
-            {
-                res[0] = buff[1];
-                res[1] = buff[0];
-                res[2] = buff[3];
-                res[3] = buff[2];
-            }
-            return res;
-        }
-
-        private byte[] ReverseFormatDCBA(byte[] buff)
-        {
-            byte[] res = new byte[buff.Length];
-            if (buff.Length == 4)
-            {
-                res[0] = buff[3];
-                res[1] = buff[2];
-                res[2] = buff[1];
-                res[3] = buff[0];
-            }
-            return res;
-        }
-
+        
         private List<Param> CopyListParams(List<Param> list)
         {
             List<Param> listp = new List<Param>();
@@ -349,6 +310,7 @@ namespace HVACDetectingSystem
             }
             return listp;
         }
+         
         #endregion
 
 
@@ -369,6 +331,13 @@ namespace HVACDetectingSystem
                 MessageBox.Show("没有当前检测产品信息", "保存提示");
                 return;
             }
+            //0.判断该产品是否已检测
+            if (currentDetectedHVAC.IsPassed==null)
+            {
+                MessageBox.Show("当前产品还未检测", "保存提示");
+                return;
+            }
+
             int HvacId = 0;
             //1.存储HVAC
             try
@@ -406,6 +375,49 @@ namespace HVACDetectingSystem
             }
         }
 
-       
+
+        private void btnManual_Click(object sender, EventArgs e)
+        {
+            if (this.btnManual.Text=="手动")
+            {
+                this.panel2Auto.Enabled = false;
+                this.panel2Auto.Visible = false;
+                this.panel2Manual.Enabled = true;
+                this.panel2Manual.Visible = true;
+
+                this.panel3Auto.Enabled = false;
+                this.panel3Auto.Visible = false;
+                this.panel3Manual.Enabled = true;
+                this.panel3Manual.Visible = true;
+
+                this.lblTitle.Text = "手动检测";
+                this.btnSave.Enabled = false;
+                this.btnSave.Visible = false;
+                this.btnStart.Enabled = false;
+                this.btnStart.Visible = false;
+
+                this.btnManual.Text = "自动";
+            }
+            else
+            {
+                this.panel2Auto.Enabled = true;
+                this.panel2Auto.Visible = true;
+                this.panel2Manual.Enabled = false;
+                this.panel2Manual.Visible = false;
+
+                this.panel3Auto.Enabled = true;
+                this.panel3Auto.Visible = true;
+                this.panel3Manual.Enabled = false;
+                this.panel3Manual.Visible = false;
+
+                lblTitle.Text = Program.currentProductType + "空调总成生产线";
+                this.btnSave.Enabled = true;
+                this.btnSave.Visible = true;
+                this.btnStart.Enabled = true;
+                this.btnStart.Visible = true;
+
+                this.btnManual.Text = "手动";
+            }
+        }
     }
 }

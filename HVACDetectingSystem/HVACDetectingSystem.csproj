@@ -59,11 +59,17 @@
     <Compile Include="FrmDetectionAuto.Designer.cs">
       <DependentUpon>FrmDetectionAuto.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmDetectionManual.cs">
+    <Compile Include="FrmProduct.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmDetectionManual.Designer.cs">
-      <DependentUpon>FrmDetectionManual.cs</DependentUpon>
+    <Compile Include="FrmProduct.Designer.cs">
+      <DependentUpon>FrmProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReport.Designer.cs">
+      <DependentUpon>FrmReport.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmType.cs">
       <SubType>Form</SubType>
@@ -94,8 +100,11 @@
     <EmbeddedResource Include="FrmDetectionAuto.resx">
       <DependentUpon>FrmDetectionAuto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmDetectionManual.resx">
-      <DependentUpon>FrmDetectionManual.cs</DependentUpon>
+    <EmbeddedResource Include="FrmProduct.resx">
+      <DependentUpon>FrmProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmReport.resx">
+      <DependentUpon>FrmReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmType.resx">
       <DependentUpon>FrmType.cs</DependentUpon>

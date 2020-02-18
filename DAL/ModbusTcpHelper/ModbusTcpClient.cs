@@ -66,9 +66,9 @@ namespace DAL
         /// <param name="port">服务端Port</param>
         /// <param name="timeoutConnect">连接超时时间</param>
         /// <param name="receiveTimeout">Socket.ReceiveTimeout</param>
-        /// <param name="SendTimeout">Socket.SendTimeout</param>
+        /// <param name="sendTimeout">Socket.SendTimeout</param>
         /// <returns></returns>
-        public bool Connect(string ip, int port, int connectTimeout, int receiveTimeout, int SendTimeout)
+        public bool Connect(string ip, int port, int connectTimeout, int receiveTimeout, int sendTimeout)
         {
             if (socketClient == null)
             {
@@ -79,7 +79,7 @@ namespace DAL
                         //socketTcpClient.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReceiveTimeout, 200);
                         //ReceiveTimeout 属性确定同步Read方法在能够接收数据之前保持阻塞状态的时间量
                         ReceiveTimeout = receiveTimeout,
-                        SendTimeout = SendTimeout
+                        SendTimeout = sendTimeout
                     };
                 }
                 catch (Exception e)

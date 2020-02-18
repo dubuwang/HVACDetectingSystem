@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataConverter.cs" />
     <Compile Include="DataGridViewStyle.cs" />
     <Compile Include="DataValidate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

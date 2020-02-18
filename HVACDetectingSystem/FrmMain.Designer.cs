@@ -38,13 +38,13 @@
             this.ToolStripMenuItem型号选择 = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItem检测 = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItem自动检测 = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStripMenuItem手动检测 = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLbl_User = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLbl_Message = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLbl_Time = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.ToolStripMenuItem报表 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -61,7 +61,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ToolStripMenuItem系统,
             this.ToolStripMenuItem设置,
-            this.ToolStripMenuItem检测});
+            this.ToolStripMenuItem检测,
+            this.ToolStripMenuItem报表});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
@@ -84,14 +85,14 @@
             // ToolStripMenuItem用户切换
             // 
             this.ToolStripMenuItem用户切换.Name = "ToolStripMenuItem用户切换";
-            this.ToolStripMenuItem用户切换.Size = new System.Drawing.Size(180, 24);
+            this.ToolStripMenuItem用户切换.Size = new System.Drawing.Size(138, 24);
             this.ToolStripMenuItem用户切换.Text = "用户切换";
             this.ToolStripMenuItem用户切换.Click += new System.EventHandler(this.ToolStripMenuItem用户切换_Click);
             // 
             // ToolStripMenuItem退出系统
             // 
             this.ToolStripMenuItem退出系统.Name = "ToolStripMenuItem退出系统";
-            this.ToolStripMenuItem退出系统.Size = new System.Drawing.Size(180, 24);
+            this.ToolStripMenuItem退出系统.Size = new System.Drawing.Size(138, 24);
             this.ToolStripMenuItem退出系统.Text = "退出系统";
             this.ToolStripMenuItem退出系统.Click += new System.EventHandler(this.ToolStripMenuItem退出系统_Click);
             // 
@@ -123,8 +124,7 @@
             // ToolStripMenuItem检测
             // 
             this.ToolStripMenuItem检测.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ToolStripMenuItem自动检测,
-            this.ToolStripMenuItem手动检测});
+            this.ToolStripMenuItem自动检测});
             this.ToolStripMenuItem检测.Image = ((System.Drawing.Image)(resources.GetObject("ToolStripMenuItem检测.Image")));
             this.ToolStripMenuItem检测.Margin = new System.Windows.Forms.Padding(0, 0, 10, 0);
             this.ToolStripMenuItem检测.Name = "ToolStripMenuItem检测";
@@ -134,16 +134,9 @@
             // ToolStripMenuItem自动检测
             // 
             this.ToolStripMenuItem自动检测.Name = "ToolStripMenuItem自动检测";
-            this.ToolStripMenuItem自动检测.Size = new System.Drawing.Size(144, 26);
+            this.ToolStripMenuItem自动检测.Size = new System.Drawing.Size(180, 26);
             this.ToolStripMenuItem自动检测.Text = "自动检测";
             this.ToolStripMenuItem自动检测.Click += new System.EventHandler(this.ToolStripMenuItem自动检测_Click);
-            // 
-            // ToolStripMenuItem手动检测
-            // 
-            this.ToolStripMenuItem手动检测.Name = "ToolStripMenuItem手动检测";
-            this.ToolStripMenuItem手动检测.Size = new System.Drawing.Size(144, 26);
-            this.ToolStripMenuItem手动检测.Text = "手动检测";
-            this.ToolStripMenuItem手动检测.Click += new System.EventHandler(this.ToolStripMenuItem手动检测_Click);
             // 
             // splitContainer1
             // 
@@ -219,6 +212,14 @@
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(28, 36);
             this.toolStripStatusLabel1.Text = "     ";
             // 
+            // ToolStripMenuItem报表
+            // 
+            this.ToolStripMenuItem报表.Image = ((System.Drawing.Image)(resources.GetObject("ToolStripMenuItem报表.Image")));
+            this.ToolStripMenuItem报表.Name = "ToolStripMenuItem报表";
+            this.ToolStripMenuItem报表.Size = new System.Drawing.Size(74, 25);
+            this.ToolStripMenuItem报表.Text = "报表";
+            this.ToolStripMenuItem报表.Click += new System.EventHandler(this.ToolStripMenuItem报表_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -263,8 +264,8 @@
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem型号选择;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem检测;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem自动检测;
-        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem手动检测;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem报表;
     }
 }
 

@@ -115,12 +115,19 @@ namespace HVACDetectingSystem
             OpenSubForm(new FrmDetectionAuto(this.objTcpClient));
         }
 
-        private void ToolStripMenuItem手动检测_Click(object sender, EventArgs e)
+        private void ToolStripMenuItem报表_Click(object sender, EventArgs e)
         {
-            //创建手动检测窗体并显示
+            //创建报表窗体并显示
             CloseExistedSubForm();
-            OpenSubForm(new FrmDetectionManual());
+            OpenSubForm(new FrmReport());
         }
+
+        //private void ToolStripMenuItem手动检测_Click(object sender, EventArgs e)
+        //{
+        //    //创建手动检测窗体并显示
+        //    CloseExistedSubForm();
+        //    OpenSubForm(new FrmDetectionManual());
+        //}
 
         private void ToolStripMenuItem退出系统_Click(object sender, EventArgs e)
         {
@@ -170,9 +177,9 @@ namespace HVACDetectingSystem
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
-            //this.toolStripStatusLbl_Time.Text = "12345678";
+            
         }
 
-       
+        
     }
 }
